@@ -13,8 +13,8 @@ def create_person_list(people_list: list) -> list:
         Person(person_data["name"], person_data["age"])
     for person_data in people_list:
         person = Person.people[person_data["name"]]
-        if "husband" in person_data and person_data["husband"]:
+        if person_data.get("husband"):
             person.husband = Person.people[person_data["husband"]]
-        if "wife" in person_data and person_data["wife"]:
+        if person_data.get("wife") :
             person.wife = Person.people[person_data["wife"]]
     return list(Person.people.values())
